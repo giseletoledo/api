@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 class="text-center">Listagem de cursos</h1>
+  
+    <form>
+      <div class="form-group">
+        <label for="nomeCurso">Nome do curso</label>
+        <input type="text" class="form-control" id="nomeCurso" name="nomeCurso" [(ngModel)]="curso.nomeCurso">
+      </div>
+      <div class="form-group mb-4">
+        <label for="valorCurso">Valor</label>
+        <input type="text" class="form-control" id="valorCurso" name="valorCurso" [(ngModel)]="curso.valorCurso">
+      </div>
+      <div class="row">
+        <div class="col-lg-12 mb-4 mt-4 d-flex justify-content-evenly">
+            <button type="button" class="btn btn-lg btn-primary p-2" (click)="cadastro(this.curso)">Cadastrar</button>
+            <button type="button" class="btn btn-lg btn-warning p-2" (click)="alterar(this.curso)">Alterar</button>
+            <button type="button" class="btn btn-lg btn-danger p-2" (click)="remover(this.curso)">Excluir</button>
+          </div>
+      </div>
+    
+     
+    </form>
+  
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Nome do curso</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let v of vetor">
+          <td>{{ v?.nomeCurso }}</td>
+          <td>{{ v?.valorCurso }}</td>
+          <td>
+            <button type="button" class="btn btn-light" (click)="selecionarCurso(v)">Selecionar curso</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  
